@@ -12,17 +12,62 @@ document.addEventListener('DOMContentLoaded', function() {
     initChart();
   });
   
-  // Loading Screen
+  // Loading Screen with Progress Counter
   function initLoader() {
     const loader = document.querySelector('.loader');
-    window.addEventListener('load', () => {
-      setTimeout(() => {
-        loader.classList.add('fade-out');
+    const loadingBar = document.querySelector('.loading-bar');
+    const loadingPercentage = document.querySelector('.loading-percentage');
+    
+    let progress = 0;
+    const duration = 3000; // 3 seconds total
+    const interval = 30; // update every 30ms
+    const increment = (interval / duration) * 100;
+    
+    const updateProgress = () => {
+      if (progress < 100) {
+        progress += increment;
+        if (progress > 100) progress = 100; // Ensure we don't exceed 100%
+        
+        // Update the UI
+        loadingBar.style.width = `${progress}%`;
+        loadingPercentage.textContent = `${Math.round(progress)}%`;
+        
+        // Continue the animation
+        requestAnimationFrame(updateProgress);
+      } else {
+        // Animation complete
         setTimeout(() => {
-          loader.style.display = 'none';
-        }, 500);
-      }, 1500);
+          loader.classList.add('fade-out');
+          setTimeout(() => {
+            loader.style.display = 'none';
+          }, 500);
+        }, 200); // Small delay before fade out
+      }
+    };
+    
+    // Start the loading animation
+    window.addEventListener('load', () => {
+      // Small delay to ensure the loading bar is visible
+      setTimeout(() => {
+        updateProgress();
+      }, 100);
     });
+    
+    // Fallback in case the load event doesn't fire
+    setTimeout(() => {
+      if (progress < 100) {
+        progress = 100;
+        loadingBar.style.width = '100%';
+        loadingPercentage.textContent = '100%';
+        
+        setTimeout(() => {
+          loader.classList.add('fade-out');
+          setTimeout(() => {
+            loader.style.display = 'none';
+          }, 500);
+        }, 200);
+      }
+    }, duration + 1000); // Add some extra time as a buffer
   }
   
   // Navbar Scroll Effect
