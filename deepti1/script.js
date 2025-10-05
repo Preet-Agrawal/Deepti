@@ -113,17 +113,17 @@ document.addEventListener('DOMContentLoaded', function() {
     // Carousel data
     const carouselItems = [
       {
-        image: 'https://images.unsplash.com/photo-1606016159991-dfe4f2746ad5?ixlib=rb-1.2.1&auto=format&fit=crop&w=1950&q=80',
+        image: 'https://images.unsplash.com/photo-1607860108855-64acf2078ed9?ixlib=rb-1.2.1&auto=format&fit=crop&w=1950&q=80',
         title: 'Model E',
         description: 'Luxury electric sedan with 400+ miles range'
       },
       {
-        image: 'https://images.unsplash.com/photo-1622419388331-391e2f6a0a7f?ixlib=rb-1.2.1&auto=format&fit=crop&w=1950&q=80',
+        image: 'https://images.unsplash.com/photo-1606108249969-f86f4a9e5e96?ixlib=rb-1.2.1&auto=format&fit=crop&w=1950&q=80',
         title: 'Model X',
         description: 'Spacious electric SUV for the whole family'
       },
       {
-        image: 'https://images.unsplash.com/photo-1629256698230-ecb8acd0b4a0?ixlib=rb-1.2.1&auto=format&fit=crop&w=1950&q=80',
+        image: 'https://images.unsplash.com/photo-1597701573349-3a0cbf4b5a3c?ixlib=rb-1.2.1&auto=format&fit=crop&w=1950&q=80',
         title: 'Model S',
         description: 'High-performance electric sports car'
       }
